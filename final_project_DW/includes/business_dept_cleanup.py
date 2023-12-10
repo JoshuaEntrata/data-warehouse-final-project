@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import openpyxl
 
+
 def clean_product_list():
     df_products_lists = pd.read_excel('Business Department/product_list.xlsx', engine='openpyxl')
     products = df_products_lists.set_index('product_id')
@@ -104,6 +105,7 @@ def clean_product_list():
     # Convert to parquet
     df_products_lists.to_parquet(
         'Business Department/product_list.parquet', index=False)
+    print('Successfully saved the parquet file.')
     
 if __name__ == "__main__":
-    clean_product_list
+    clean_product_list()
